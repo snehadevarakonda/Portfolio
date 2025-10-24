@@ -1,0 +1,29 @@
+{
+  "name": "portfolio-smtp-email",
+  "version": "1.0.0",
+  "description": "SMTP email handler for portfolio contact form",
+  "main": "send-email.js",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build step required'",
+    "deploy": "netlify deploy --prod"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "netlify-cli": "^12.0.0"
+  },
+  "keywords": [
+    "smtp",
+    "email",
+    "contact-form",
+    "portfolio",
+    "serverless"
+  ],
+  "author": "Sneha Devarakonda",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
