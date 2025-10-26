@@ -794,31 +794,156 @@ body {
     padding: 40px;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.form-group {
-    margin-bottom: 25px;
-}
-
-.form-input {
-    width: 100%;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
     transition: all 0.3s ease;
 }
 
-.form-input:focus {
-    outline: none;
-    background: white;
-    box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 167, 38, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
-.form-textarea {
+.contact-form:hover::before {
+    opacity: 1;
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Form Input Styling */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    color: #333;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #666;
+    font-weight: 400;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    background: white;
+    border-color: #ff6b6b;
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+    transform: translateY(-2px);
+}
+
+.contact-form textarea {
     resize: vertical;
     min-height: 120px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* Contact Form Button Styling */
+.contact-form button {
+    width: 100%;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff6b6b, #ffa726);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    position: relative;
+}
+
+.contact-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+}
+
+.contact-form button:active {
+    transform: translateY(0);
+}
+
+.contact-form button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Form Animation Enhancements */
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    animation: slideInUp 0.6s ease-out;
+}
+
+.contact-form input:nth-child(1) { animation-delay: 0.1s; }
+.contact-form input:nth-child(2) { animation-delay: 0.2s; }
+.contact-form textarea { animation-delay: 0.3s; }
+.contact-form button { animation-delay: 0.4s; }
+
+/* Input validation states */
+.contact-form input:valid,
+.contact-form textarea:valid {
+    border-color: rgba(76, 175, 80, 0.5);
+}
+
+.contact-form input:invalid:not(:placeholder-shown),
+.contact-form textarea:invalid:not(:placeholder-shown) {
+    border-color: rgba(244, 67, 54, 0.5);
+}
+
+/* Custom scrollbar for textarea */
+.contact-form textarea::-webkit-scrollbar {
+    width: 6px;
+}
+
+.contact-form textarea::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.contact-form textarea::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ff6b6b, #ffa726);
+    border-radius: 3px;
+}
+
+.contact-form textarea::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #ff5252, #ff9800);
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Footer */
@@ -1093,5 +1218,21 @@ body {
     
     .contact-form {
         padding: 20px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+    }
+    
+    .contact-form button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    .contact-form textarea {
+        min-height: 100px;
     }
 }
