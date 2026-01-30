@@ -494,6 +494,49 @@ body {
     gap: 20px;
 }
 
+.skill-category {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+.skill-category-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.skill-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 0.98rem;
+}
+
+.skill-list li::before {
+    content: '•';
+    position: absolute;
+    left: 6px;
+    top: 0;
+    color: #ff6b6b;
+    font-weight: 700;
+}
+
 .skill-item {
     display: flex;
     align-items: center;
