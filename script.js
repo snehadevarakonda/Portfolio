@@ -1,5 +1,35 @@
 // Smooth scrolling and navigation
 document.addEventListener('DOMContentLoaded', function() {
+    // Theme Switcher Logic
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const toggleIcon = themeToggleBtn ? themeToggleBtn.querySelector('.toggle-icon') : null;
+    
+    // Check saved preference or fallback to default
+    const savedTheme = localStorage.getItem('theme') || 'developer';
+    setTheme(savedTheme);
+    
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function() {
+            const currentTheme = document.body.classList.contains('cybersecurity-mode') ? 'cybersecurity' : 'developer';
+            const nextTheme = currentTheme === 'developer' ? 'cybersecurity' : 'developer';
+            setTheme(nextTheme);
+        });
+    }
+    
+    function setTheme(theme) {
+        if (theme === 'cybersecurity') {
+            document.body.classList.add('cybersecurity-mode');
+            if (toggleIcon) toggleIcon.textContent = '🌙';
+            localStorage.setItem('theme', 'cybersecurity');
+            document.title = "Sneha - Cybersecurity Portfolio";
+        } else {
+            document.body.classList.remove('cybersecurity-mode');
+            if (toggleIcon) toggleIcon.textContent = '☀️';
+            localStorage.setItem('theme', 'developer');
+            document.title = "Sneha - Web Developer Portfolio";
+        }
+    }
+
     // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -35,11 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            navbar.classList.add('navbar-scrolled');
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.1)';
-            navbar.style.boxShadow = 'none';
+            navbar.classList.remove('navbar-scrolled');
         }
     });
     
