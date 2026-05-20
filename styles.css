@@ -1474,6 +1474,7 @@ body.cybersecurity-mode {
     
     .hero-subtitle {
         font-size: 1.1rem;
+        margin-bottom: 1.5rem;
     }
     
     .about-content {
@@ -1498,6 +1499,16 @@ body.cybersecurity-mode {
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .hero-buttons {
+        gap: 0.8rem;
     }
     
     .section-title {

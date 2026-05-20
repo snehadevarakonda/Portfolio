@@ -17,16 +17,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function setTheme(theme) {
+        const heroSubtitle = document.getElementById('hero-subtitle');
         if (theme === 'cybersecurity') {
             document.body.classList.add('cybersecurity-mode');
             if (toggleIcon) toggleIcon.textContent = '🌙';
             localStorage.setItem('theme', 'cybersecurity');
             document.title = "Sneha - Cybersecurity Portfolio";
+            if (heroSubtitle) {
+                heroSubtitle.textContent = heroSubtitle.getAttribute('data-cybersecurity');
+            }
         } else {
             document.body.classList.remove('cybersecurity-mode');
             if (toggleIcon) toggleIcon.textContent = '☀️';
             localStorage.setItem('theme', 'developer');
             document.title = "Sneha - Web Developer Portfolio";
+            if (heroSubtitle) {
+                heroSubtitle.textContent = heroSubtitle.getAttribute('data-developer');
+            }
         }
     }
 
