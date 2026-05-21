@@ -265,7 +265,7 @@
                              <a href="https://github.com/snehadevarakonda/campusMemory.git" class="project-link">
                               <i class="fab fa-github"></i>
                              </a>
-                             <a href="#" class="project-link">
+                             <a href="#" class="project-link demo-link" data-project="campusMemories" onclick="openDemoModal('campusMemories'); return false;">
                                <i class="fas fa-external-link-alt"></i>
                              </a> 
                              </div>
@@ -551,6 +551,63 @@
             </div>
         </div>
     </footer>
+
+    <!-- Demo Modal -->
+    <div id="demoModal" class="demo-modal">
+        <div class="demo-modal-content">
+            <span class="demo-close" onclick="closeDemoModal()">&times;</span>
+            <h2 class="demo-modal-title">Campus Memories - Demo</h2>
+            <div class="demo-images-container">
+                <div class="demo-image-wrapper">
+                    <img src="images/campus-memories/Screenshot 2026-05-21 223350.png" alt="Campus Memories Landing">
+                    <p class="demo-image-caption">Landing Page - Welcome Interface</p>
+                </div>
+                <div class="demo-image-wrapper">
+                    <img src="images/campus-memories/Screenshot 2026-05-21 223518.png" alt="User Profile">
+                    <p class="demo-image-caption">User Profile with Memory Stats</p>
+                </div>
+                <div class="demo-image-wrapper">
+                    <img src="images/campus-memories/Screenshot 2026-05-21 223603.png" alt="Memory Feed">
+                    <p class="demo-image-caption">Class Search feed</p>
+                </div>
+            </div>
+            <p class="demo-description">This is a private social platform for college students to share and preserve memories from their university experience.</p>
+        </div>
+    </div>
+
+    <script>
+        // Demo Modal Functions
+        function openDemoModal(project) {
+            const modal = document.getElementById('demoModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeDemoModal() {
+            const modal = document.getElementById('demoModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('demoModal');
+            if (event.target === modal) {
+                closeDemoModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeDemoModal();
+            }
+        });
+    </script>
 
     <script>
         const form = document.getElementById("contactForm");
